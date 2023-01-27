@@ -6,7 +6,7 @@ from PIL import Image
 mtcnn = MTCNN(image_size=240, margin=0, min_face_size=20) # initializing mtcnn for face detection
 resnet = InceptionResnetV1(pretrained='vggface2').eval() # initializing resnet for face img to embeding conversion
 
-path_to_test_img = 'Enter_Image_path_please'
+path_to_test_img = 'test_data/pins_Ursula Corbero/Ursula Corbero12_19.jpg'
 
 def face_match(img_path, data_path): # img_path= location of photo, data_path= location of data.pt 
     # getting embedding matrix of the given img
