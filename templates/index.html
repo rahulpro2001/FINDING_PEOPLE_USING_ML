@@ -10,21 +10,17 @@
 <body>
     <div class="container">
         <h1 class="text-center my-5">Image Upload and View</h1>
-        <form action="/upload" method="POST" enctype="multipart/form-data">
-            <div class="form-group">
-                <label for="image">Upload Image of a Person</label>
-                <input type="file" class="form-control-file" id="image" name="image">
-            </div>
-            <button type="submit" class="btn btn-primary">Upload</button>
+        <form action="/upload"  enctype="multipart/form-data">
+            <button type="submit" class="btn btn-primary">Image upload page</button>
         </form>
         <hr>
         <h2 class="my-5">View Images of a Single Person</h2>
-        <form action="/view-person" method="POST">
-            <div class="form-group">
-                <label for="person-name">Enter Person's Name</label>
-                <input type="text" class="form-control" id="person-name" name="person-name">
-            </div>
-            <button type="submit" class="btn btn-primary">View Images</button>
+        <form action="/view-person" >
+            <!-- <div class="form-group">
+                <label for="name">Enter Person's Name</label>
+                <input type="text" class="form-control" id="name" name="name">
+            </div> -->
+            <button type="submit" class="btn btn-primary">View Images of a single person page</button>
         </form>
         <hr>
         <h2 class="my-5">View a Single Image of All People</h2>

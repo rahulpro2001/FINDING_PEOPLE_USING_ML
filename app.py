@@ -21,14 +21,17 @@ def view_person():
     if request.method == "POST":
         name = request.form["name"]
         # retrieve images of the person from server or database
-        images = get_images(name)
+        # images = get_images(name)
+        images = name
+        print(name)
+
         return render_template("view-person.html", name=name, images=images)
     return render_template("view-person.html")
 
-@app.route("/view-all")
+@app.route("/view-all", methods=["GET", "POST"])
 def view_all():
     # retrieve all images from server or database
-    images = get_all_images()
+    images = "images"
     return render_template("view-all.html", images=images)
 
 		
