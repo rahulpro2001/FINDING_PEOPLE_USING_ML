@@ -9,11 +9,18 @@
 
 <body>
     <div class="container">
-        <h1 class="text-center my-5">Image Upload and View</h1>
+        <h1 class="text-center my-5">Add a new case</h1>
         <form action="/upload"  enctype="multipart/form-data">
+            <button type="submit" class="btn btn-primary">add new case link</button>
+        </form>
+        <hr>
+
+        <h1 class="text-center my-5">Image Upload to existing</h1>
+        <form action="/upload-existing" enctype="multipart/form-data">
             <button type="submit" class="btn btn-primary">Image upload page</button>
         </form>
         <hr>
+
         <h2 class="my-5">View Images of a Single Person</h2>
         <form action="/view-person" >
             <!-- <div class="form-group">

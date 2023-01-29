@@ -21,8 +21,23 @@
 <body>
     <form action="/upload" method="POST" enctype="multipart/form-data">
         <div class="form-group">
+            <label for="id">id</label>
+            <input type="text" class="form-control" id="id" name="id" required>
+            <br>
+            <label for="name">Name</label>
+            <input type="text" class="form-control" id="name" name="name">
+            <br>
             <label for="image">Upload Image of a Person</label>
-            <input type="file" class="form-control-file" id="image" name="image">
+            <input type="file" class="form-control-file" id="image" name="image" required>
+            <br>
+            <label for="age">Age</label>
+            <input type="number" class="form-control" id="age" name="age">
+            <br>
+            <label for="phone">Contact Number(if any)</label>
+            <input type="number" class="form-control" id="phone" name="phone">
+            <br>
+            <label for="description">Description</label>
+            <textarea class="form-control" id="description" name="description" rows="3"></textarea>
         </div>
         <button type="submit" class="btn btn-primary">Upload</button>
     </form>

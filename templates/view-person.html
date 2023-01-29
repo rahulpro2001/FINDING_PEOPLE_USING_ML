@@ -8,14 +8,14 @@
 </head>
 <body>
     <form id="view-person-form" method="post">
-        <label for="name">Enter the name of the person:</label>
-        <input type="text" id="name" name="name">
+        <label for="name">Enter the id of the person:</label>
+        <input type="text" id="id" name="id">
         <input type="submit" value="View">
     </form>
-    {% if name %}
-    <h2>Images of {{ name }}</h2>
+    {% if id %}
+    <h2>Images of {{ id }}</h2>
     {% for image in images %}
-    <img src="{{ image }}" alt="{{ name }}">
+    <img src="{{ image }}" alt="{{ id }}" width="200" height="300">
     {% endfor %}
     {% endif %}
 </body>
