@@ -1,0 +1,20 @@
+
+
+- Upload a new case
+- Find a case
+- View all people (with images)
+- View single Person- (two people can have same name)- use id
+
+
+
+people = [Person1, Person2, ....]
+Person = {
+    id,
+    name,
+    photo,
+    age,
+    where found,
+    description,
+    contact(if any),
+
+}

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Image Upload and View</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="text-center my-5">Image Upload and View</h1>
+        <form action="/upload" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="image">Upload Image of a Person</label>
+                <input type="file" class="form-control-file" id="image" name="image">
+            </div>
+            <button type="submit" class="btn btn-primary">Upload</button>
+        </form>
+        <hr>
+        <h2 class="my-5">View Images of a Single Person</h2>
+        <form action="/view-person" method="POST">
+            <div class="form-group">
+                <label for="person-name">Enter Person's Name</label>
+                <input type="text" class="form-control" id="person-name" name="person-name">
+            </div>
+            <button type="submit" class="btn btn-primary">View Images</button>
+        </form>
+        <hr>
+        <h2 class="my-5">View a Single Image of All People</h2>
+        <form action="/view-all" method="POST">
+            <button type="submit" class="btn btn-primary">View Image</button>
+        </form>
+    </div>
+</body>
+
+</html>

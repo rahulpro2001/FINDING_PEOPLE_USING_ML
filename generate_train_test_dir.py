@@ -15,7 +15,7 @@ if not os.path.exists('test_data'):
 if not os.path.exists('train_data'):
     os.mkdir('train_data')
 
-COUNT_IN_TRAIN = 20
+COUNT_IN_TRAIN = 60
 COUNT_IN_TEST = 20
 for folder in os.listdir(path):
     c = 0   
