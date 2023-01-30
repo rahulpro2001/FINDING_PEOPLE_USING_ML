@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!-- 
+    Person = {
+        id,
+        name,
+        photo,
+        age,
+        where found,
+        description,
+        contact(if any),
+    } 
+-->
+
+<body>
+    <form action="/upload-existing" method="POST" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="id">id</label>
+            <input type="text" class="form-control" id="id" required>
+
+            <label for="image">Upload Image</label>
+            <input type="file" class="form-control-file" id="image" name="image" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Upload</button>
+    </form>
+
+</body>
+
+</html>
