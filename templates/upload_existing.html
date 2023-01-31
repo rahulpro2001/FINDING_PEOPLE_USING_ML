@@ -1,34 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>UPLOAD IN EXISTING</title>
+    <link href=
+    "{{"https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i"}}"
+    rel="stylesheet">
+    <link
+      href="{{url_for('static',filename='css/main.css')}}"
+      rel="stylesheet"
+      media="all"
+    />
+  </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<!-- 
-    Person = {
-        id,
-        name,
-        photo,
-        age,
-        where found,
-        description,
-        contact(if any),
-    } 
--->
+  <body>
+    <div class="page-wrapper bg-blue p-t-100 p-b-100 font-robo">
+      <div class="wrapper wrapper--w680">
+        <div class="card card-1">
+          <div class="card-heading"></div>
+          <div class="card-body">
+            <h2 class="title">UPLOAD INFORMATION</h2>
+            <form method="POST">
+              <div class="col-2">
+                <div class="input-group">
+                  <input
+                    class="input--style-1"
+                    type="text"
+                    placeholder="ID"
+                    name="id"
+                  />
+                </div>
+              </div>
 
-<body>
-    <form action="/upload-existing" method="POST" enctype="multipart/form-data">
-        <div class="form-group">
-            <label for="id">id</label>
-            <input type="text" class="form-control" id="id" required>
-            <label for="image">Upload Image</label>
-            <input type="file" class="form-control-file" id="image" name="image" required>
+              <div class="col-2">
+                <div class="input-group">
+                  <input
+                    type="file"
+                    class="input--style-1"
+                    id="image"
+                    name="image"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div class="p-t-20">
+                <button class="btn btn--radius btn--green" type="submit">
+                  Submit
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
-        <button type="submit" class="btn btn-primary">Upload</button>
-    </form>
-</body>
-
+      </div>
+    </div>
+  </body>
 </html>
+<!-- end document-->
