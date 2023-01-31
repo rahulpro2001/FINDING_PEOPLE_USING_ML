@@ -1,15 +1,174 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>FIND MISSING</title>
+
+     <link href="{{'static/img/icons8-search-client-32.png'}}" rel="icon" />
+    <link rel="stylesheet" href ="{{url_for('static',filename='vendor/bootstrap/css/bootstrap.min.css')}}" />
+    <link rel="stylesheet" href =  "{{url_for('static',filename='vendor/boxicons/css/boxicons.min.css')}}" />
+    <link rel="stylesheet" href =  "{{url_for('static',filename='vendor/remixicon/remixicon.css')}}" />
+    <link rel="stylesheet" type = "text/css" href =  "{{ url_for('static',filename='css/style.css') }}" />
+
 </head>
+
 <body>
-    <h2>All images</h2>
-    {% for image in images %}
-    <img src="{{ image }}" alt="Image">
-    {% endfor %}
+
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top ">
+        <div class="container d-flex align-items-center justify-content-lg-between">
+            <h1 class="logo me-auto me-lg-0"><a href="index.html">FIND<span>.</span></a></h1>
+            <!-- Uncomment below if you prefer to use an image logo -->
+            <a href="index.html" class="logo me-auto me-lg-0"><img src="{{'static/img/icons8-search-client-32.png'}}" alt=""
+                    class="img-fluid"></a>
+
+            <nav id="navbar" class="navbar order-last order-lg-0">
+                <ul>
+                    <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
+                    <li><a class="nav-link scrollto" href="#about">About</a></li>
+                    <li><a class="nav-link scrollto" href="#services">Services</a></li>
+
+                    <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
+                        <ul>
+                            <li><a href="#">Drop Down 1</a></li>
+                            <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i
+                                        class="bi bi-chevron-right"></i></a>
+                                <ul>
+                                    <li><a href="#">Deep Drop Down 1</a></li>
+                                    <li><a href="#">Deep Drop Down 2</a></li>
+                                    <li><a href="#">Deep Drop Down 3</a></li>
+                                    <li><a href="#">Deep Drop Down 4</a></li>
+                                    <li><a href="#">Deep Drop Down 5</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">Drop Down 2</a></li>
+                            <li><a href="#">Drop Down 3</a></li>
+                            <li><a href="#">Drop Down 4</a></li>
+                        </ul>
+                    </li>
+                    <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+                </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav><!-- .navbar -->
+
+            <a href="#about" class="get-started-btn scrollto">Get Started</a>
+
+        </div>
+    </header><!-- End Header -->
+
+<!-- ======= Hero Section ======= -->
+<div class="all_view">
+    <section id="hero2" class="d-flex align-items-center justify-content-center">
+        <div class="container" data-aos="fade-up">
+            <div class="row align-items-stretch justify-content-start card-deck">
+
+                {% for image in detail %} 
+                 <div class="col-sm-3 flip-card cards card-2 text-center" style="width: 18rem;">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                              <img src=" {{detail[image]["photo"]}}" height="100%" width="100%" alt= {{detail[image]["photo"]}}>
+                        </div>
+                        <div class="flip-card-back">
+                            <h2>{{detail[image]["id"]}}:{{detail[image]["name"]}}</h2>
+                            <p>{{detail[image]["age"]}}</p>
+                            <p>{{detail[image]["where_found"]}}</p>
+                            <p>{{detail[image]["description"]}}</p>
+                            <p>{{detail[image]["contact"]}}</p>
+                        </div>
+                    </div>
+                </div>  
+              {% endfor %}
+
+            </div>
+        </div>
+    </section><!-- End Hero -->
+</div>
+
+    <!-- ======= Footer ======= -->
+    <footer id="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="footer-info">
+                            <h3><span><img src="{{'static/img/icons8-search-client-96.png'}}" alt="" srcset=""></span></h3>
+                            <p>
+                                KIET COLLEGE <br>
+                                MANDIR WALI GALI 201206, INDIA<br><br>
+                                <strong>Phone:</strong> +1 9999 9999 55<br>
+                                <strong>Email:</strong> findmissingone@gmail.com<br>
+                            </p>
+                            <div class="social-links mt-3">
+                                <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+                                <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+                                <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+                                <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+                                <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-2 col-md-6 footer-links">
+                        <h4>Useful Links</h4>
+                        <ul>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 footer-links">
+                        <h4>Our Services</h4>
+                        <ul>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 footer-newsletter">
+                        <h4>Our Newsletter</h4>
+                        <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
+                        <form action="" method="post">
+                            <input type="email" name="email"><input type="submit" value="Subscribe">
+                        </form>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="copyright">
+                &copy; Copyright <strong><span>RANGERS</span></strong>. All Rights Reserved
+            </div>
+
+            Designed by <a href="https://bootstrapmade.com/">RANGERS</a>
+        </div>
+        </div>
+    </footer><!-- End Footer -->
+
+    <script src="{{url_for('static',filename='js/main.js')}}"></script>
+  
+
 </body>
+
 </html>
+
+
+
+
+
+
+
+
+
+

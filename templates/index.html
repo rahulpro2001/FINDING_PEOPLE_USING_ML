@@ -1,40 +1,292 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 
-<head>
-    <title>Image Upload and View</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-</head>
+    <title>FIND MISSING</title>
+    <meta content="" name="description" />
+    <meta content="" name="keywords" />
 
-<body>
-    <div class="container">
-        <h1 class="text-center my-5">Add a new case</h1>
-        <form action="/upload"  enctype="multipart/form-data">
-            <button type="submit" class="btn btn-primary">add new case link</button>
-        </form>
-        <hr>
+    <!-- Favicons -->
+    <link href="{{'static/img/icons8-search-client-32.png'}}" rel="icon" />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+      rel="stylesheet"
+    />
 
-        <h1 class="text-center my-5">Image Upload to existing</h1>
-        <form action="/upload-existing" enctype="multipart/form-data">
-            <button type="submit" class="btn btn-primary">Image upload page</button>
-        </form>
-        <hr>
+    <!-- Vendor CSS Files -->
+    <link rel="stylesheet" href ="{{url_for('static',filename='vendor/bootstrap/css/bootstrap.min.css')}}" />
+    <link rel="stylesheet" href =  "{{url_for('static',filename='vendor/boxicons/css/boxicons.min.css')}}" />
+    <link rel="stylesheet" href =  "{{url_for('static',filename='vendor/remixicon/remixicon.css')}}" />
+    <link rel="stylesheet" type = "text/css" href =  "{{ url_for('static',filename='css/style.css') }}" />
+  </head>
 
-        <h2 class="my-5">View Images of a Single Person</h2>
-        <form action="/view-person" >
-            <!-- <div class="form-group">
-                <label for="name">Enter Person's Name</label>
-                <input type="text" class="form-control" id="name" name="name">
-            </div> -->
-            <button type="submit" class="btn btn-primary">View Images of a single person page</button>
-        </form>
-        <hr>
-        <h2 class="my-5">View a Single Image of All People</h2>
-        <form action="/view-all" method="POST">
-            <button type="submit" class="btn btn-primary">View Image</button>
-        </form>
-    </div>
-</body>
+  <body>
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top">
+      <div
+        class="container d-flex align-items-center justify-content-lg-between"
+      >
+        <h1 class="logo me-auto me-lg-0">
+          <a href="index.html">FIND<span>.</span></a>
+        </h1>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <a href="index.html" class="logo me-auto me-lg-0"
+          >
+          
+          <img
+            src= "{{'static/img/icons8-search-client-32.png'}}"
+            alt=""
+            class="img-fluid"
+        />
+      </a>
 
+        <nav id="navbar" class="navbar order-last order-lg-0">
+          <ul>
+            <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
+            <li><a class="nav-link scrollto" href="#about">About</a></li>
+            <li><a class="nav-link scrollto" href="#services">Services</a></li>
+
+            <li class="dropdown">
+              <a href="#"
+                ><span>Drop Down</span> <i class="bi bi-chevron-down"></i
+              ></a>
+              <ul>
+                <li><a href="#">Drop Down 1</a></li>
+                <li class="dropdown">
+                  <a href="#"
+                    ><span>Deep Drop Down</span>
+                    <i class="bi bi-chevron-right"></i
+                  ></a>
+                  <ul>
+                    <li><a href="#">Deep Drop Down 1</a></li>
+                    <li><a href="#">Deep Drop Down 2</a></li>
+                    <li><a href="#">Deep Drop Down 3</a></li>
+                    <li><a href="#">Deep Drop Down 4</a></li>
+                    <li><a href="#">Deep Drop Down 5</a></li>
+                  </ul>
+                </li>
+                <li><a href="#">Drop Down 2</a></li>
+                <li><a href="#">Drop Down 3</a></li>
+                <li><a href="#">Drop Down 4</a></li>
+              </ul>
+            </li>
+            <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+          </ul>
+          <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav>
+        <!-- .navbar -->
+
+        <a href="#about" class="get-started-btn scrollto">Get Started</a>
+      </div>
+    </header>
+    <!-- End Header -->
+
+    <!-- ======= Hero Section ======= -->
+    <section id="hero" class="d-flex align-items-center justify-content-center">
+      <div class="container" data-aos="fade-up">
+        <div
+          class="row justify-content-center"
+          data-aos="fade-up"
+          data-aos-delay="150"
+        >
+          <div class="col-xl-6 col-lg-8">
+            <h1>THIS IS AN OFFICIAL PORTAL<span></span></h1>
+            <h2>We are team to help you find your beloved missing</h2>
+          </div>
+        </div>
+
+        <div
+          class="row gy-4 mt-5 justify-content-center"
+          data-aos="zoom-in"
+          data-aos-delay="250"
+        >
+          <div class="col-xl-2 col-md-4">
+            <form action="/upload" enctype="multipart/form-data">
+              <div class="icon-box">
+                <i class="ri-store-line"></i>
+                <button type="submit" class="btn btn-warning">
+                  <h3>REGISTER NEW</h3>
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <div class="col-xl-2 col-md-4">
+            <form action="/upload-existing" enctype="multipart/form-data">
+              <div class="icon-box">
+                <i class="ri-bar-chart-box-line"></i>
+                <button type="submit" class="btn btn-warning">
+                  <h3>Image upload page</h3>
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <div class="col-xl-2 col-md-4">
+            <form action="/view-person">
+              <div class="icon-box">
+                <i class="ri-calendar-todo-line"></i>
+                <button type="submit" class="btn btn-warning">
+                  <h3>Single Image using id</h3>
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <div class="col-xl-2 col-md-4">
+            <form action="/view-all" method="POST">
+              <div class="icon-box">
+                <i class="ri-paint-brush-line"></i>
+                <button type="submit" class="btn btn-warning">
+                  <h3>All Missing Persons</h3>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End Hero -->
+
+    <!-- ======= Footer ======= -->
+    <footer id="footer">
+      <div class="footer-top">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-3 col-md-6">
+              <div class="footer-info">
+                <h3>
+                  <span
+                    >
+               
+                    <img
+                      src= "{{'static/img/icons8-search-client-96.png'}}"
+                      alt=""
+                      srcset=""
+                  /></span>
+                </h3>
+                <p>
+                  KIET COLLEGE <br />
+                  MANDIR WALI GALI 201206, INDIA<br /><br />
+                  <strong>Phone:</strong> +1 9999 9999 55<br />
+                  <strong>Email:</strong> findmissingone@gmail.com<br />
+                </p>
+                <div class="social-links mt-3">
+                  <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+                  <a href="#" class="facebook"
+                    ><i class="bx bxl-facebook"></i
+                  ></a>
+                  <a href="#" class="instagram"
+                    ><i class="bx bxl-instagram"></i
+                  ></a>
+                  <a href="#" class="google-plus"
+                    ><i class="bx bxl-skype"></i
+                  ></a>
+                  <a href="#" class="linkedin"
+                    ><i class="bx bxl-linkedin"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-2 col-md-6 footer-links">
+              <h4>Useful Links</h4>
+              <ul>
+                <li>
+                  <i class="bx bx-chevron-right"></i> <a href="#">Home</a>
+                </li>
+                <li>
+                  <i class="bx bx-chevron-right"></i> <a href="#">About us</a>
+                </li>
+                <li>
+                  <i class="bx bx-chevron-right"></i> <a href="#">Services</a>
+                </li>
+                <li>
+                  <i class="bx bx-chevron-right"></i>
+                  <a href="#">Terms of service</a>
+                </li>
+                <li>
+                  <i class="bx bx-chevron-right"></i>
+                  <a href="#">Privacy policy</a>
+                </li>
+              </ul>
+            </div>
+
+            <div class="col-lg-3 col-md-6 footer-links">
+              <h4>Our Services</h4>
+              <ul>
+                <li>
+                  <i class="bx bx-chevron-right"></i> <a href="#">Web Design</a>
+                </li>
+                <li>
+                  <i class="bx bx-chevron-right"></i>
+                  <a href="#">Web Development</a>
+                </li>
+                <li>
+                  <i class="bx bx-chevron-right"></i>
+                  <a href="#">Product Management</a>
+                </li>
+                <li>
+                  <i class="bx bx-chevron-right"></i> <a href="#">Marketing</a>
+                </li>
+                <li>
+                  <i class="bx bx-chevron-right"></i>
+                  <a href="#">Graphic Design</a>
+                </li>
+              </ul>
+            </div>
+
+            <div class="col-lg-4 col-md-6 footer-newsletter">
+              <h4>Our Newsletter</h4>
+              <p>
+                Tamen quem nulla quae legam multos aute sint culpa legam noster
+                magna
+              </p>
+              <form action="" method="post">
+                <input type="email" name="email" /><input
+                  type="submit"
+                  value="Subscribe"
+                />
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="copyright">
+          &copy; Copyright <strong><span>RANGERS</span></strong
+          >. All Rights Reserved
+        </div>
+        <div class="credits">
+          <!-- All the links in the footer should remain intact. -->
+          <!-- You can delete the links only if you purchased the pro version. -->
+          <!-- Licensing information: https://bootstrapmade.com/license/ -->
+          <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/gp-free-multipurpose-html-bootstrap-template/ -->
+          Designed by <a href="https://bootstrapmade.com/">RANGERS</a>
+        </div>
+      </div>
+    </footer>
+    <!-- End Footer -->
+    <!-- 
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a> -->
+
+    <!-- Vendor JS Files -->
+    <!-- <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script> -->
+
+    <!-- Template Main JS File -->
+
+    <script src="{{'static/js/main.js'}}"></script>
+  </body>
 </html>

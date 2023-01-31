@@ -33,9 +33,7 @@ for folder in folders:
 # with open("id_to_name.json", "w") as outfile:
 #     outfile.write(json.dumps(hash_dict))
 # pprint.pprint(hash_dict)
-
 '''
-
 
 for folder in os.listdir(curr_dir):
     curr_path = os.path.join(curr_dir,folder)

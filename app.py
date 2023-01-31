@@ -1,7 +1,12 @@
 from flask import Flask, render_template, request, redirect
 from werkzeug.utils import secure_filename
+import json
+#changes for json
 import os
 
+
+
+#-------------------
 app = Flask(__name__)
 
 @app.route("/", methods=["GET", "POST"])
@@ -33,20 +38,24 @@ def view_person():
         images = []
         for img in img_names:
             images.append('static/train_data/'+id+'/'+img)
-        print(images)
         # retrieve images of the person from server or database
         # images = get_images(name)
         # images = id
         print(id)
-
-        return render_template("view-person.html", id=id, images=images)
+        details = open("id_to_details.json", "r").read()
+        details_into_json = json.loads(details)
+        return render_template("view-person.html", id=id, images=images,name=details_into_json[id]["name"])
     return render_template("view-person.html")
 
 @app.route("/view-all", methods=["GET", "POST"])
 def view_all():
     # retrieve all images from server or database
-    images = "images"
-    return render_template("view-all.html", images=images)
+    
+    # images = os.listdir('static/train_data')
+    # return render_template("view-all.html", images=images)
+    details = open("id_to_details.json", "r").read()
+    details_into_json = json.loads(details)
+    return render_template("view-all.html", detail = details_into_json)
 
 
 if __name__ == '__main__':
