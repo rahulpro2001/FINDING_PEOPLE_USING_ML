@@ -3,6 +3,32 @@ from werkzeug.utils import secure_filename
 import json
 #changes for json
 import os
+from facenet_pytorch import MTCNN, InceptionResnetV1
+import torch
+from PIL import Image
+
+
+mtcnn = MTCNN(image_size=240, margin=0, min_face_size=20) # initializing mtcnn for face detection
+resnet = InceptionResnetV1(pretrained='vggface2').eval() # initializing resnet for face img to embeding conversion
+
+def face_match(img_path, data_path): # img_path= location of photo, data_path= location of data.pt 
+    # getting embedding matrix of the given img
+    img = Image.open(img_path)
+    face, prob = mtcnn(img, return_prob=True) # returns cropped face and probability
+    emb = resnet(face.unsqueeze(0)).detach() # detech is to make required gradient false
+    
+    saved_data = torch.load('data.pt') # loading data.pt file
+    embedding_list = saved_data[0] # getting embedding data
+    name_list = saved_data[1] # getting list of names
+    dist_list = [] # list of matched distances, minimum distance is used to identify the person
+    
+    for idx, emb_db in enumerate(embedding_list):
+        dist = torch.dist(emb, emb_db).item()
+        dist_list.append(dist)
+        
+    idx_min = dist_list.index(min(dist_list))
+    return (name_list[idx_min], min(dist_list))
+
 
 ALLOWED_EXTENSIONS = {'jpg'}
 
@@ -20,7 +46,7 @@ def index():
 def upload():
     details = open("id_to_details.json", "r").read()
     details_into_json = json.loads(details)
-    print(details_into_json)
+    # print(details_into_json)
     current_entries = len(details_into_json)
     id = str(current_entries + 1)
     if request.method == "POST":
@@ -106,6 +132,26 @@ def view_profile(id):
     details_into_json = json.loads(details)
     return render_template("view-profile.html", id=id, images=images,name=details_into_json[id]["name"],age=details_into_json[id]["age"],contact=details_into_json[id]["contact"],description=details_into_json[id]["description"])
 
+@app.route("/test-model", methods=["GET", "POST"])
+def test_model():
+    if request.method == "POST":
+        image = request.files["image"]
+        # print(image)
+        image.save('test_image.png')
+        path_to_test_img = 'test_image.png'
+
+        
+
+        result = face_match(path_to_test_img, 'data.pt')
+        details = open("id_to_details.json", "r").read()
+        details_into_json = json.loads(details)
+        print('Face matched with: ',result[0], 'With distance: ',result[1])
+        print(result)
+
+
+        
+        return render_template('test_model.html',person_matched = details_into_json[result[0]]['name'])
+    return render_template('test_model.html')
 
 
 if __name__ == '__main__':
