@@ -17,7 +17,7 @@
 <body>
 
     <!-- ======= Header ======= -->
-    <header id="header" class="fixed-top ">
+    <header id="header" class="fixed-top bg-dark">
         <div class="container d-flex align-items-center justify-content-lg-between">
             <h1 class="logo me-auto me-lg-0"><a href="index.html">FIND<span>.</span></a></h1>
             <!-- Uncomment below if you prefer to use an image logo -->
@@ -57,9 +57,9 @@
 
         </div>
     </header><!-- End Header -->
-
-<!-- ======= Hero Section ======= -->
-<div class="all_view">
+    <!-- ======= Hero Section ======= -->
+    <div class="all_view">
+    <br><br><br>
     <section id="hero2" class="d-flex align-items-center justify-content-center">
         <div class="container" data-aos="fade-up">
             <div class="row align-items-stretch justify-content-start card-deck">
@@ -68,15 +68,16 @@
                  <div class="col-sm-3 flip-card cards card-2 text-center" style="width: 18rem;">
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
-                              <img src=" {{detail[image]["photo"]}}" height="100%" width="100%" alt= {{detail[image]["photo"]}}>
+                              <img src=" {{detail[image]['photo']}}" height="100%" width="100%" alt= {{detail[image]['photo']}}>
                         </div>
-                        <div class="flip-card-back">
+                        <form action="/view-profile/{{detail[image]['id']}}" class="flip-card-back">
                             <h2>{{detail[image]["id"]}}:{{detail[image]["name"]}}</h2>
                             <p>{{detail[image]["age"]}}</p>
                             <p>{{detail[image]["where_found"]}}</p>
                             <p>{{detail[image]["description"]}}</p>
                             <p>{{detail[image]["contact"]}}</p>
-                        </div>
+                            <button type="submit" >VIEW PROFILE</button>
+                        </form>
                     </div>
                 </div>  
               {% endfor %}

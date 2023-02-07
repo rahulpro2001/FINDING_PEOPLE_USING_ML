@@ -5,25 +5,25 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title>FIND MISSING</title>
-   
-    <script src= "https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-     <link href="{{'static/img/icons8-search-client-32.png'}}" rel="icon" />
-    <link rel="stylesheet" href ="{{url_for('static',filename='vendor/bootstrap/css/bootstrap.min.css')}}" />
-    <link rel="stylesheet" href =  "{{url_for('static',filename='vendor/boxicons/css/boxicons.min.css')}}" />
-    <link rel="stylesheet" href =  "{{url_for('static',filename='vendor/remixicon/remixicon.css')}}" />
-    <link rel="stylesheet" type = "text/css" href =  "{{ url_for('static',filename='css/style.css') }}" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link href="{{'static/img/icons8-search-client-32.png'}}" rel="icon" />
+    <link rel="stylesheet" href="{{url_for('static',filename='vendor/bootstrap/css/bootstrap.min.css')}}" />
+    <link rel="stylesheet" href="{{url_for('static',filename='vendor/boxicons/css/boxicons.min.css')}}" />
+    <link rel="stylesheet" href="{{url_for('static',filename='vendor/remixicon/remixicon.css')}}" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/style.css') }}" />
 
 </head>
 
 <body>
-    <br><br><br><br>
+    <br><br><br>
     <!-- ======= Header ======= -->
-    <header id="header" class="fixed-top ">
+    <header id="header" class="fixed-top bg-dark">
         <div class="container d-flex align-items-center justify-content-lg-between">
             <h1 class="logo me-auto me-lg-0"><a href="index.html"><span>FIND</span></a></h1>
             <!-- Uncomment below if you prefer to use an image logo -->
-            <a href="index.html" class="logo me-auto me-lg-0"><img src="{{'static/img/icons8-search-client-32.png'}}" alt=""
-                    class="img-fluid"></a>
+            <a href="index.html" class="logo me-auto me-lg-0"><img src="{{'static/img/icons8-search-client-32.png'}}"
+                    alt="" class="img-fluid"></a>
 
             <nav id="navbar" class="navbar order-last order-lg-0">
                 <ul>
@@ -49,33 +49,41 @@
 
 
 
-    
-    <section id="hero2" class="d-flex align-items-center justify-content-center">
-        <div class="container" data-aos="fade-up">  
- 
-    <div class="form">
-      <form class="view-person-form" action="" method="post">
-        <label for="name"  style="color:#ffc451;">ENTER ID:</label>
-          <input type="text" id="id" name="id" style="opacity:0.4; border: 2px solid #f7b231; border-radius: 4px;background:#ffc451;">
-          <input type="submit" value="View" style=" background:#1f1e1c;border: 1px solid #ffc451;color:#f6f3ef; border-radius: 4px;" >
-      </form>
-    </div>
 
-    
+    <section id="hero2" class="d-flex align-items-center justify-content-center">
+        <div class="container" data-aos="fade-up">
+
+            <div class="form">
+                <form class="view-person-form" action="" method="post">
+                    <label for="name" style="color:#ffc451;">ENTER ID:</label>
+                    <input type="text" id="id" name="id"
+                        style="opacity:0.4; border: 2px solid #f7b231; border-radius: 4px;background:#ffc451;">
+                    <input type="submit" value="View"
+                        style=" background:#1f1e1c;border: 1px solid #ffc451;color:#f6f3ef; border-radius: 4px;">
+                </form>
+            </div>
+
+
             <div class="row align-items-stretch justify-content-start card-deck">
-            {% if id %}
-            <h1>{{ name }}</h1>
-            {%for image in images %}
-                 <div class="col-sm-3 flip-card cards card-2 text-center" style="width: 18rem;">
-                              <img src="{{image}}" height="100%" width="100%" alt="">
-                </div>  
+                {% if id %}
+                <div class="bg-dark">
+                    <h1>Name :{{ name }}</h1>
+                    <h1>Age :{{ age }}</h1>
+                    <h1>ID :{{ id }}</h1>
+                    <h1>Description :{{ description }}</h1>
+                </div>
+                    
+                {%for image in images %}
+                <div class="col-sm-3 flip-card cards card-2 text-center" style="width: 18rem;">
+                    <img src="{{image}}" height="100%" width="100%" alt="">
+                </div>
                 {% endfor %}
                 {% endif %}
             </div>
         </div>
     </section><!-- End Hero -->
-  
-<!-- ======= Hero Section ======= -->
+
+    <!-- ======= Hero Section ======= -->
 
     <!-- ======= Footer ======= -->
     <footer id="footer">
@@ -84,7 +92,8 @@
                 <div class="row">
                     <div class="col-lg-3 col-md-6">
                         <div class="footer-info">
-                            <h3><span><img src="{{'static/img/icons8-search-client-96.png'}}" alt="" srcset=""></span></h3>
+                            <h3><span><img src="{{'static/img/icons8-search-client-96.png'}}" alt="" srcset=""></span>
+                            </h3>
                             <p>
                                 KIET COLLEGE <br>
                                 MANDIR WALI GALI 201206, INDIA<br><br>
@@ -118,7 +127,7 @@
 
         <div class="container">
             <div class="copyright">
-                 <a href = ""><strong><span>MADE WITH LOVE FROM RANGERS</span></strong></a>
+                <a href=""><strong><span>MADE WITH LOVE FROM RANGERS</span></strong></a>
             </div>
         </div>
         </div>
@@ -126,24 +135,8 @@
 
     <script src="{{url_for('static',filename='js/jQuery.js')}}"></script>
     <script src="{{url_for('static',filename='js/main.js')}}"></script>
-  
+
 
 </body>
 
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
