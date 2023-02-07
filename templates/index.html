@@ -17,10 +17,23 @@
     />
 
     <!-- Vendor CSS Files -->
-    <link rel="stylesheet" href ="{{url_for('static',filename='vendor/bootstrap/css/bootstrap.min.css')}}" />
-    <link rel="stylesheet" href =  "{{url_for('static',filename='vendor/boxicons/css/boxicons.min.css')}}" />
-    <link rel="stylesheet" href =  "{{url_for('static',filename='vendor/remixicon/remixicon.css')}}" />
-    <link rel="stylesheet" type = "text/css" href =  "{{ url_for('static',filename='css/style.css') }}" />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static',filename='vendor/bootstrap/css/bootstrap.min.css')}}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static',filename='vendor/boxicons/css/boxicons.min.css')}}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static',filename='vendor/remixicon/remixicon.css')}}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static',filename='css/style.css') }}"
+    />
   </head>
 
   <body>
@@ -33,15 +46,13 @@
           <a href="index.html"><span>FIND</span></a>
         </h1>
         <!-- Uncomment below if you prefer to use an image logo -->
-        <a href="index.html" class="logo me-auto me-lg-0"
-          >
-          
+        <a href="index.html" class="logo me-auto me-lg-0">
           <img
-            src= "{{'static/img/icons8-search-client-32.png'}}"
+            src="{{'static/img/icons8-search-client-32.png'}}"
             alt=""
             class="img-fluid"
-        />
-      </a>
+          />
+        </a>
 
         <nav id="navbar" class="navbar order-last order-lg-0">
           <ul>
@@ -78,7 +89,6 @@
           <i class="bi bi-list mobile-nav-toggle"></i>
         </nav>
         <!-- .navbar -->
-
       </div>
     </header>
     <!-- End Header -->
@@ -107,7 +117,8 @@
               <div class="icon-box">
                 <i class="ri-store-line"></i>
                 <button type="submit" class="btn btn-warning">
-                  <h3>REGISTER NEW</h3>
+                  <h3>NEW CASE</h3>
+                  <br>
                 </button>
               </div>
             </form>
@@ -118,29 +129,41 @@
               <div class="icon-box">
                 <i class="ri-bar-chart-box-line"></i>
                 <button type="submit" class="btn btn-warning">
-                  <h3>Image upload page</h3>
+                  <h3>EXISTING CASE</h3>
                 </button>
               </div>
             </form>
           </div>
 
-          <!-- <div class="col-xl-2 col-md-4">
-            <form action="/view-profile">
+          <div class="col-xl-2 col-md-4">
+            <form action="/train_model">
               <div class="icon-box">
                 <i class="ri-calendar-todo-line"></i>
                 <button type="submit" class="btn btn-warning">
-                  <h3>Single Image using id</h3>
+                  <h3>TRAIN MODEL</h3>
                 </button>
               </div>
             </form>
-          </div> -->
+          </div>
+
+          <div class="col-xl-2 col-md-4">
+            <form action="/test_model">
+              <div class="icon-box">
+                <i class="ri-calendar-todo-line"></i>
+                <button type="submit" class="btn btn-warning">
+                  <h3>TEST MODEL</h3>
+                  <br />
+                </button>
+              </div>
+            </form>
+          </div>
 
           <div class="col-xl-2 col-md-4">
             <form action="/view-all" method="POST">
               <div class="icon-box">
                 <i class="ri-paint-brush-line"></i>
                 <button type="submit" class="btn btn-warning">
-                  <h3>All Missing Persons</h3>
+                  <h3>ALL MISSING PERSON</h3>
                 </button>
               </div>
             </form>
@@ -158,11 +181,9 @@
             <div class="col-lg-3 col-md-6">
               <div class="footer-info">
                 <h3>
-                  <span
-                    >
-               
+                  <span>
                     <img
-                      src= "{{'static/img/icons8-search-client-96.png'}}"
+                      src="{{'static/img/icons8-search-client-96.png'}}"
                       alt=""
                       srcset=""
                   /></span>
