@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <title>NEW CASE</title>
     <link href=
-    "{{'https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i'}}"
+    "{{"https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i"}}"
     rel="stylesheet">
     <link
       href="{{url_for('static',filename='css/main.css')}}"
@@ -13,27 +13,92 @@
     />
   </head>
 
-<body>
-    <form action="/upload" method="POST" enctype="multipart/form-data">
-        <div class="form-group">
-            <label for="id">id</label>
-            {{ id }}
-            <br>
-            <label for="name">Name</label>
-            <input type="text" class="form-control" id="name" name="name">
-            <br>
-            <label for="image">Upload Image of a Person</label>
-            <input type="file" class="form-control-file" id="image" name="image" required>
-            <br>
-            <label for="age">Age</label>
-            <input type="number" class="form-control" id="age" name="age">
-            <br>
-            <label for="phone">Contact Number(if any)</label>
-            <input type="number" class="form-control" id="phone" name="phone">
-            <br>
-            <label for="description">Description</label>
-            <textarea class="form-control" id="description" name="description" rows="3"></textarea>
-            <button type="submit" >Upload</button>
+  <body>
+    <div class="page-wrapper bg-blue p-t-100 p-b-100 font-robo">
+      <div class="wrapper wrapper--w680">
+        <div class="card card-1">
+          <div class="card-heading"></div>
+          <div class="card-body">
+            <h2 class="title">UPLOAD INFORMATION</h2>
+            <form action="/upload" method="POST" enctype="multipart/form-data">
+              <div class="row row-space">
+                <div class="col-2">
+                  <div class="input-group">
+                    <input
+                      class="input--style-1"
+                      type="number"
+                      placeholder="ID: {{id}}"
+                      name="ID"
+                      disabled
+                    />
+                  </div>
+                </div>
+                <div class="col-2">
+                  <div class="input-group">
+                    <input
+                      class="input--style-1"
+                      type="number"
+                      placeholder="AGE"
+                      name="phone"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div class="row row-space">
+                <div class="col-2">
+                  <div class="input-group">
+                    <input
+                      class="input--style-1"
+                      type="text"
+                      placeholder="NAME"
+                      name="name"
+                    />
+                  </div>
+                </div>
+                <div class="col-2">
+                  <div class="input-group">
+                    <input
+                      type="file"
+                      class="input--style-1"
+                      id="image"
+                      name="image"
+                      required
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div class="row row-space">
+                <div class="col-2">
+                  <div class="input-group">
+                    <input
+                      class="input--style-1"
+                      type="number"
+                      placeholder="PHONE"
+                      name="phone"
+                    />
+                  </div>
+                </div>
+                <div class="col-2">
+                  <div class="input-group">
+                    <input
+                      class="input--style-1"
+                      type="text"
+                      placeholder="DESCRIPTION"
+                      name="description"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div class="p-t-20">
+                <button class="btn btn--radius btn--green" type="submit">
+                  Submit
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </div>

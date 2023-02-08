@@ -154,5 +154,10 @@ def test_model():
     return render_template('test_model.html')
 
 
+@app.route("/tt")
+def tt():
+    return render_template('test.html')
+        
+
 if __name__ == '__main__':
    app.run(debug = True)

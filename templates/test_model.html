@@ -2,24 +2,163 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <title>NEW CASE</title>
-    <link
-        href="{{'https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i'}}"
-        rel="stylesheet">
-    <link href="{{url_for('static',filename='css/main.css')}}" rel="stylesheet" media="all" />
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>FIND MISSING</title>
+
+     <link href="{{'static/img/icons8-search-client-32.png'}}" rel="icon" />
+    <link rel="stylesheet" href ="{{url_for('static',filename='vendor/bootstrap/css/bootstrap.min.css')}}" />
+    <link rel="stylesheet" href =  "{{url_for('static',filename='vendor/boxicons/css/boxicons.min.css')}}" />
+    <link rel="stylesheet" href =  "{{url_for('static',filename='vendor/remixicon/remixicon.css')}}" />
+    <link rel="stylesheet" type = "text/css" href =  "{{ url_for('static',filename='css/style.css') }}" />
+
 </head>
 
 <body>
-    <form action="/test-model" method="POST" enctype="multipart/form-data">
-        <div class="form-group">
-            <label for="image">Upload Image of a Person</label>
-            <input type="file" class="form-control-file" id="image" name="image" required>
-            <button type="submit">TEST FOR BEST MATCH</button>
+
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top ">
+        <div class="container d-flex align-items-center justify-content-lg-between">
+            <h1 class="logo me-auto me-lg-0"><a href="index.html"><span>PEOPLE-FINDER</span></a></h1>
+            <!-- Uncomment below if you prefer to use an image logo -->
+            <a href="index.html" class="logo me-auto me-lg-0"><img src="{{'static/img/icons8-search-client-32.png'}}" alt=""
+                    class="img-fluid"></a>
+
+            <nav id="navbar" class="navbar order-last order-lg-0">
+          <ul>
+            <li>
+              <a class="nav-link scrollto active" href="#hero">NEW CASE</a>
+            </li>
+            <li><a class="nav-link scrollto" href="#about">EXISTING</a></li>
+            <li>
+              <a class="nav-link scrollto" href="#services">TEST MODEL</a>
+            </li>
+            <li>
+              <a class="nav-link scrollto" href="#services">TRAIN MODEL</a>
+            </li>
+            <li><a class="nav-link scrollto" href="#contact">CONTACT</a></li>
+          </ul>
+          <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav>
+            
+
         </div>
-    </form>
-    The face is matched with : {{ person_matched }}
+    </header><!-- End Header -->
+
+<!-- ======= Hero Section ======= -->
+
+<div class="all_view">
+    <section id="hero2" class="d-flex align-items-center justify-content-center" style="padding:55px;">
+      <div
+        class="container"
+        data-aos="fade-up"
+        style="
+          margin: auto;
+          width: 40%;
+          border: 3px solid #ffc451;
+          border-radius: 4%;
+          padding: 10px;
+          height: 250px;
+        "
+      >
+        <form action="/test-model" method="POST" enctype="multipart/form-data">
+          <label for="image" style="color: #ffc451"
+            >Upload Image of a Person</label
+          >
+          <input
+            type="file"
+            class="form-control-file"
+            id="image"
+            name="image"
+            required
+          /><br><hr style="border: 3px solid #ffc451;opacity:0.8;"><br><br>
+          <button type="submit" class="btn btn-warning">TEST FOR BEST MATCH</button>
+        </form>
+      </div>
+
+
+        <div class="container" data-aos="fade-up">
+            <div class="row align-items-stretch justify-content-start card-deck">
+
+                <div class="col-sm-3 flip-card cards card-2 text-center" style="width: 18rem;">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                              <img src=" {{'C:/Users/RAHUL/Desktop/FINDING_PEOPLE_USING_ML/static/img/hero-bg.jpg'}}" height="100%" width="100%" alt="">
+                        </div>
+                        <div class="flip-card-back" style = "background-color: #fbb322;">
+                            <h2>jfhk</h2>
+    
+                        </div>
+                    </div>
+                </div>
+
+                  <div class="col-sm-3 flip-card cards card-2 text-center" style="width: 18rem;">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                              <img src=" {{'C:/Users/RAHUL/Desktop/FINDING_PEOPLE_USING_ML/static/img/hero-bg.jpg'}}" height="100%" width="100%" alt="">
+                        </div>
+                        <div class="flip-card-back" style = "background-color: #fbb322;">
+                            <h2>jfhk</h2>
+    
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section><!-- End Hero -->
+</div>
+
+    <!-- ======= Footer ======= -->
+    <footer id="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="footer-info">
+                            <h3><span><img src="{{'static/img/icons8-search-client-96.png'}}" alt="" srcset=""></span></h3>
+                            <p>
+                                KIET COLLEGE <br>
+                                MANDIR WALI GALI 201206, INDIA<br><br>
+                                <strong>Phone:</strong> +1 9999 9999 55<br>
+                                <strong>Email:</strong> findmissingone@gmail.com<br>
+                            </p>
+                            <div class="social-links mt-3">
+                                <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+                                <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+                                <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+                                <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+                                <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-2 col-md-6 footer-links">
+                        <h4>Useful Links</h4>
+                        <ul>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="copyright">
+                <a href=""><strong><span>DESIGNED BY RANGERS</span></strong></a>
+            </div>
+        </div>
+        </div>
+    </footer><!-- End Footer -->
+
+    <script src="{{url_for('static',filename='js/main.js')}}"></script> 
+
 </body>
 
 </html>
-<!-- end document-->
