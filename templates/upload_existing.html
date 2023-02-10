@@ -1,60 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>UPLOAD IN EXISTING</title>
-    <link
-      href="{{'https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i'}}"
-      rel="stylesheet"
-    />
-    <link
-      href="{{url_for('static',filename='css/main.css')}}"
-      rel="stylesheet"
-      media="all"
-    />
-  </head>
-
-  <body>
-    <div class="page-wrapper bg-blue p-t-100 p-b-100 font-robo">
-      <div class="wrapper wrapper--w680">
-        <div class="card card-1">
-          <div class="card-heading"></div>
-          <div class="card-body">
-            <h2 class="title">UPLOAD INFORMATION</h2>
-            <form method="POST">
-              <div class="col-2">
-                <div class="input-group">
-                  <input
-                    class="input--style-1"
-                    type="text"
-                    placeholder="ID"
-                    name="id"
-                  />
-                </div>
-              </div>
-
-              <div class="col-2">
-                <div class="input-group">
-                  <input
-                    type="file"
-                    class="input--style-1"
-                    id="image"
-                    name="image"
-                    required
-                  />
-                </div>
-              </div>
-
-              <div class="p-t-20">
-                <button class="btn btn--radius btn--green" type="submit">
-                  Submit
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
+ 
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" type = "text/css" href =  "{{ url_for('static',filename='css/style_form.css') }}" />
+ 
+  <!-- jQuery CDN Link -->
+  <script src="{{'https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'}}"></script>
+  <title>UPLOAD</title>
+</head>
+ 
+<body>
+  <div class="container">
+    <div class="form">
+      <div class="btn">
+        <button class="uploadBtn">UPLOAD INFORMATION</button>
       </div>
+      <form class="upload" action="/upload" method="POST" enctype="multipart/form-data">
+        <div class="formGroup">
+          
+          <input type="number" name = "id" id="Case_id" placeholder="CASE_ID :{{id}}" autocomplete="off">
+        </div>
+        
+        <div class="formGroup">
+          <input type="text" name = "name" id="userName" placeholder="Name" autocomplete="off">
+        </div>
+       
+        <div class="formGroup">
+          <input type="file" id="image" placeholder="image" required autocomplete="off">
+        </div>
+        <br><br><br>
+        <div class="formGroup">
+          <button type="submit" class="btn2">REGISTER</button>
+        </div>
+ 
+      </form>
+        
+    
     </div>
-  </body>
+  </div>
+
+
+</body>
+ 
 </html>
-<!-- end document-->
