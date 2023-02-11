@@ -9,13 +9,14 @@ body {
   background-size: cover;
   background-attachment: fixed;
 }
-/* align items center vertically and horizontally  */
+
 .container {
   display: flex;
   justify-content: center;
   align-items: center !important;
   height: 100vh;
 }
+
 .form {
   width: 350px;
   height: 520px;
