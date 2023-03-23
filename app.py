@@ -7,7 +7,6 @@ from facenet_pytorch import MTCNN, InceptionResnetV1
 import torch
 from PIL import Image
 
-
 mtcnn = MTCNN(image_size=240, margin=0, min_face_size=20) # initializing mtcnn for face detection
 resnet = InceptionResnetV1(pretrained='vggface2').eval() # initializing resnet for face img to embeding conversion
 
@@ -137,8 +136,8 @@ def test_model():
     if request.method == "POST":
         image = request.files["image"]
         # print(image)
-        image.save('test_image.png')
-        path_to_test_img = 'test_image.png'
+        image.save('static/test_image.jpg')
+        path_to_test_img = 'static/test_image.jpg'
 
         
 
@@ -150,13 +149,50 @@ def test_model():
 
 
         
-        return render_template('test_model.html',person_matched = details_into_json[result[0]]['name'])
+        return render_template('test_model.html',person_matched = details_into_json[result[0]]['name'],first_img=f"static/train_data/{result[0]}/{result[0]}_1.jpg",uploaded_img = "static/test_image.jpg",match_id = result[0])
     return render_template('test_model.html')
 
 
-@app.route("/tt")
-def tt():
-    return render_template('test.html')
+@app.route("/train-model")
+def train_model():
+    from facenet_pytorch import MTCNN, InceptionResnetV1
+    import torch
+    from torchvision import datasets
+    from torch.utils.data import DataLoader
+    from PIL import Image
+
+    mtcnn = MTCNN(image_size=240, margin=0, min_face_size=20) # initializing mtcnn for face detection
+    resnet = InceptionResnetV1(pretrained='vggface2').eval() # initializing resnet for face img to embeding conversion
+
+    dataset=datasets.ImageFolder('static/train_data') # photos folder path 
+    idx_to_class = {i:c for c,i in dataset.class_to_idx.items()} # accessing names of peoples from folder names
+
+    def collate_fn(x):
+        return x[0]
+
+    loader = DataLoader(dataset, collate_fn=collate_fn)
+
+    face_list = [] # list of cropped faces from photos folder
+    name_list = [] # list of names corrospoing to cropped photos
+    embedding_list = [] # list of embeding matrix after conversion from cropped faces to embedding matrix using resnet
+    total = len(loader)
+    # print(loader)
+    i=0
+    for img, idx in loader:
+        if i%10 == 0:
+            print(f'{i}/{total} done')
+        i+=1
+        face, prob = mtcnn(img, return_prob=True) 
+        if face is not None and prob>0.90: # if face detected and porbability > 90%
+            emb = resnet(face.unsqueeze(0)) # passing cropped face into resnet model to get embedding matrix
+            embedding_list.append(emb.detach()) # resulten embedding matrix is stored in a list
+            name_list.append(idx_to_class[idx]) # names are stored in a list
+
+    print('Saving results....')
+    data = [embedding_list, name_list]
+    torch.save(data, 'data.pt') # saving data.pt file
+    print('Done....')
+    return "Training is done"
         
 
 if __name__ == '__main__':

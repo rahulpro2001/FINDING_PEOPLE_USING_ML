@@ -54,7 +54,7 @@
               <a class="nav-link scrollto" href="./test-model">TEST MODEL</a>
             </li>
             <li>
-              <a class="nav-link scrollto" href="">TRAIN MODEL</a>
+              <a class="nav-link scrollto" href="/train-model">TRAIN MODEL</a>
             </li>
             <li><a class="nav-link scrollto" href="./view-all">VIEW-ALL</a></li>
           </ul>
@@ -106,9 +106,10 @@
             </button>
           </form>
         </div>
-
+{% if match_id %}
         <div class="container" data-aos="fade-up">
           <div class="row align-items-stretch justify-content-start card-deck">
+            
             <div
               class="col-sm-3 flip-card cards card-2 text-center"
               style="width: 18rem"
@@ -116,42 +117,39 @@
               <div class="flip-card-inner">
                 <div class="flip-card-front">
                   <img
-                    src=" {{'C:/Users/RAHUL/Desktop/FINDING_PEOPLE_USING_ML/static/img/hero-bg.jpg'}}"
+                    src="{{first_img}}"
                     height="100%"
                     width="100%"
                     alt=""
                   />
                 </div>
                 <div class="flip-card-back" style="background-color: #fbb322">
-                  <h2>jfhk</h2>
-                </div>
-              </div>
-            </div>
-
-            <div
-              class="col-sm-3 flip-card cards card-2 text-center"
-              style="width: 18rem"
-            >
-              <div class="flip-card-inner">
-                <div class="flip-card-front">
-                  <img
-                    src=" {{'C:/Users/RAHUL/Desktop/FINDING_PEOPLE_USING_ML/static/img/hero-bg.jpg'}}"
-                    height="100%"
-                    width="100%"
-                    alt=""
-                  />
-                </div>
-                <div class="flip-card-back" style="background-color: #fbb322">
-                  <h2>jfhk</h2>
+                  <h2></h2>
                 </div>
               </div>
             </div>
           </div>
         </div>
+        
+        <div class="container" data-aos="fade-up" style="
+                    margin: auto;
+                    width: 40%;
+                    border: 3px solid #ffc451;
+                    border-radius: 4%;
+                    padding: 10px;
+                    height: 250px;
+                    background-color: aliceblue;
+                  ">
+          <h3 style="background-color: aliceblue;">
+            The best match is ID:{{match_id}}<br>
+            The name is: {{person_matched}}
+
+          </p>
+        </div>  
+        {% endif %}
       </section>
       <!-- End Hero -->
     </div>
-
     <!-- ======= Footer ======= -->
     <footer id="footer">
       <div class="container">

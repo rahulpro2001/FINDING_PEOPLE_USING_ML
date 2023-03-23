@@ -5,7 +5,7 @@ Run this script to create the folders of test and train datasets storing
 
 import shutil 
 import os 
-path = '105_classes_pins_dataset'
+path = 'splited_105_face_recognition/test'
 test_folder_path = 'test_data'
 train_folder_path = 'train_data'
 
@@ -15,13 +15,17 @@ if not os.path.exists('test_data'):
 if not os.path.exists('train_data'):
     os.mkdir('train_data')
 
-COUNT_IN_TRAIN = 60
-COUNT_IN_TEST = 20
+# COUNT_IN_TRAIN = 100
+# COUNT_IN_TEST = 20
+
 for folder in os.listdir(path):
     c = 0   
+    
+    COUNT_IN_TRAIN = 0
+    COUNT_IN_TEST = len(os.listdir(os.path.join(path,folder)))
     print(folder)
-    if not os.path.exists(os.path.join('train_data',folder)):
-        os.mkdir(os.path.join('train_data',folder))
+    # if not os.path.exists(os.path.join('train_data',folder)):
+    #     os.mkdir(os.path.join('train_data',folder))
     if not os.path.exists(os.path.join('test_data',folder)):
         os.mkdir(os.path.join('test_data',folder))
 
